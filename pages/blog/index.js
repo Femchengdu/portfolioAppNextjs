@@ -31,8 +31,8 @@ export const returnBaseUrl = () => {
 
 export async function getStaticProps() {
   const res = await fetch(`${returnBaseUrl()}/api/blog_posts`);
-  //const { blogPosts } = await res.json();
-  const blogPosts = [{ id: 1, title: "First blog post" }];
+  const resJSON = await res.json();
+  const blogPosts = resJSON.blogPosts; //[{ id: 1, title: "First blog post" }];
   return {
     props: { blogPosts: blogPosts },
   };
