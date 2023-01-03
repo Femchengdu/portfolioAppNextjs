@@ -34,7 +34,7 @@ export async function getStaticProps() {
   //const { blogPosts } = await res.json();
   const blogPosts = [{ id: 1, title: "First blog post" }];
   return {
-    props: { blogPosts },
+    props: { blogPosts: blogPosts },
   };
 }
 
