@@ -14,7 +14,7 @@ const Nav = () => (
             </li>
             <li><Link href="/about">About</Link></li>
             <li><Link href="/blog">Blog</Link></li>
-            <li><Link href="about.html">Projects</Link></li>
+            <li><Link href="/shop">Shop</Link></li>
             <li>
             <Link href="https://www.linkedin.com/in/samuel-ajayi-full-stack/" target="_blank">
                 <span className="fab fa-linkedin" aria-hidden="true"></span>
