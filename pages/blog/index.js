@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import { getSortedPostsData } from "../../utils/blog.js";
 
 const BlogPosts = ({ blogPosts }) => {
-  const blog_posts = blogPosts.length
-    ? blogPosts
-    : [{ id: 1, title: "First blog post" }];
+  const blog_posts = blogPosts;
   return (
     <div>
       <h1>Blog</h1>
@@ -20,19 +19,8 @@ const BlogPosts = ({ blogPosts }) => {
   );
 };
 
-export const returnBaseUrl = () => {
-  let base_url =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://lionfish-app-aooyz.ondigitalocean.app"; // https://v2ds.netlify.app
-
-  return base_url;
-};
-
-export async function getStaticProps() {
-  const res = await fetch(`${returnBaseUrl()}/api/blog_posts`);
-  const resJSON = await res.json();
-  const blogPosts = resJSON.blogPosts; //[{ id: 1, title: "First blog post" }];
+export function getStaticProps() {
+  const blogPosts = getSortedPostsData();
   return {
     props: { blogPosts: blogPosts },
   };
